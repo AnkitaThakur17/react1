@@ -10,9 +10,12 @@ import Form from "./components/Form.jsx";
 import Radio from "./components/Radio.jsx";
 import CarDetail from "./components/CarDetail.jsx";
 import Count from "./components/Count.jsx";
+import { UserContext } from "./Context.jsx";
 
 function App() {
+   const user = { name: "Ankita", city: "Indore", contact: 4567 };
   return (
+     <UserContext.Provider value={user}>
     <BrowserRouter>
       <nav>
         <Link to="/">Home</Link>
@@ -43,6 +46,7 @@ function App() {
   <Route path="/car/:id" element={<CarDetail/>} />
       </Routes>
     </BrowserRouter>
+    </UserContext.Provider>
   );
 }
 
